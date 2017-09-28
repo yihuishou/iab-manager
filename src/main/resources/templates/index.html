@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<p>INDEX</p>
+<label th:text="muu">'helo!'</label>
+<label th:text="${lili.username}"></label>
+<label th:if="${lili.username}==lili">oopp</label>
+<label th:if="ture">opp</label>
+<span th:text="${mo}">as</span>
+<span id="12" th:text="${lili.username}"></span>
+<div th:object="${lili}">
+
+    <ul th:text="*{username}">
+
+    </ul>
+    <ul th:text="*{password}"></ul>
+    <a href="login.html" th:href="@{/message}">链接</a>
+
+</div>
+<span th:text="'123312'">7788</span>
+<span th:text="7788"></span>
+<span th:text="你好！"></span>
+</body>
+</html>

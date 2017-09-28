@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<p>login</p>
+<form action="/login">
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" name="username"/></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="password"/></td>
+        </tr>
+        <tr>
+            <td>    <button type="submit">登陆</button></td>
+            <td>    <button type="reset">取消</button></td>
+        </tr>
+    </table>
+</form>
+
+
+<div>
+    <a href="/show">查询</a>
+    <p>结果面板</p>
+    <label th:text="${user}">没有结果</label>
+
+    <table >
+
+        <tr data-th-each="user:${users}">
+
+            <td>用户名</td>
+            <td data-th-text="${user.userID}"></td>
+
+
+        </tr>
+    </table>
+
+
+</div>
+</body>
+</html>
