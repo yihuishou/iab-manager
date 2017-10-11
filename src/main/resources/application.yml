@@ -72,6 +72,11 @@ spring:
       ddl-auto: update
     show-sql: true
 
+#  控制台多彩输出
+  output:
+    ansi:
+      enabled: detect
+
 # Druid连接池监控信息配置
 druid:
  # 监控模块登陆名
@@ -84,3 +89,16 @@ druid:
  allow: null
  # 黑名单
  deny: null
+
+# 全局Debug模式
+#debug: false
+
+# logback日志配置
+logging:
+#设置文件，可以是绝对路径，也可以是相对路径。
+# file: /filelog.log
+#设置目录，会在该目录下创建spring.log文件，并写入日志内容
+ path: /
+
+
+

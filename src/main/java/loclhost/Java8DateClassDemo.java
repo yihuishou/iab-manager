@@ -21,6 +21,13 @@ public class Java8DateClassDemo {
         System.out.println("今天："+today);
 
 
+        Logs.debug("封装测试：{},{}",stringDate,formedDate);
+        try {
+            int s = 10 / 0;
+
+        } catch (Exception e) {
+            Logs.error("错误",e);
+        }
     }
 
 

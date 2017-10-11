@@ -41,13 +41,10 @@
     <label th:text="|id: ${iterStat.first}|"></label>
     <label th:text="|id: ${iterStat.last}|"></label>
     <label th:text="|id: ${iterStat.size}|"></label>
-
     <label th:text="|id: ${iterStat.even}|"></label>
 
-
 </li>
-<script th:inline="javascript">
-    
+<script th:inline="javascript" type="text/javascript">
     function put() {
         alert("触发")
         var data = [[${lili.username}]]
@@ -57,13 +54,18 @@
 
         alert(data2)
     }
-    
+
 </script>
 
 <label th:if="${lili.userID > 0}">lili的id是2</label>
 <div th:inline="text">
 
     [[${lili.username}]]
+
+</div>
+
+<div>
+<p>CDATA</p>
 
 </div>
 

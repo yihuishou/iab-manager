@@ -1,8 +1,10 @@
 package loclhost.Controller;
 
 import loclhost.Dao.UserDao;
+import loclhost.Logs;
 import loclhost.Model.User;
 import loclhost.Service.LoginService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,8 +28,11 @@ public class MainController {
     @Autowired
     private UserDao xx;
 
+     private org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @RequestMapping("/")
     public String index(Model model) {
+
         List list = new ArrayList();
         User tom = new User();
         tom.setUserID(1);
@@ -48,6 +53,9 @@ public class MainController {
         list.add(marry);
         list.add(tom);
 
+        logger.info("原版的测试");
+        Logs.info("其他的测试");
+
         Map good = new HashMap();
         good.put("money", "500");
         good.put("name", "水果");
@@ -56,7 +64,7 @@ public class MainController {
         model.addAttribute("lili", lili);
         model.addAttribute("map", good);
         model.addAttribute("mo", 123);
-
+        // logger.info("参数化例子，用户名：{}", marry.getUsername());
         return "index";
     }
 
@@ -80,18 +88,19 @@ public class MainController {
         model.put("t3", name);
         return "king";
     }
+
     @RequestMapping("/login")
     public ModelAndView login(User user) {
         ModelAndView ne = new ModelAndView();
         ne.setViewName("login");
-        User us =  loginService.login(user);
+        User us = loginService.login(user);
         ne.addObject("user", us);
         return ne;
     }
 
     @RequestMapping("/show")
     public String show(Model model) {
-        List<User> list= xx.findAll();
+        List<User> list = xx.findAll();
         model.addAttribute("users", list);
         return "login";
     }
@@ -100,12 +109,9 @@ public class MainController {
     public String adduser(Model model, User user) {
 
         String res = loginService.addUeser(user);
-        model.addAttribute("info",res);
+        model.addAttribute("info", res);
         return "newuser";
     }
 
 
-
-
-    
 }
