@@ -99,6 +99,6 @@ logging:
 # file: /filelog.log
 #设置目录，会在该目录下创建spring.log文件，并写入日志内容
  path: /
-
-
-
+mybatis:
+  mapper-locations: classpath:MapperFile/*.xml
+  type-aliases-package: loclhost.Model

@@ -2,6 +2,7 @@ package loclhost.Controller;
 
 import loclhost.Dao.UserDao;
 import loclhost.Logs;
+import loclhost.Mapper.UserDaoM;
 import loclhost.Model.User;
 import loclhost.Service.LoginService;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,9 @@ public class MainController {
     String name = "Tom";
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private UserDaoM xm;
 
     @Autowired
     private UserDao xx;
@@ -53,6 +57,13 @@ public class MainController {
         list.add(marry);
         list.add(tom);
 
+        System.out.println(xm.getAll().size());
+
+        System.out.println("+++++");
+
+        System.out.println(xx.findByuserID(1).getUsername());
+
+
         logger.info("原版的测试");
         Logs.info("其他的测试");
 
@@ -65,6 +76,9 @@ public class MainController {
         model.addAttribute("map", good);
         model.addAttribute("mo", 123);
         // logger.info("参数化例子，用户名：{}", marry.getUsername());
+
+
+
         return "index";
     }
 
