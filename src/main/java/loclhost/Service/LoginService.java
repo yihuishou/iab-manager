@@ -13,7 +13,7 @@ public class LoginService {
     @Autowired
     private UserDao userDao;
 
-    public User login(User user) {
+     User login(User user) {
 
         User now = userDao.findByuserID(user.getUserID());
 
@@ -21,14 +21,22 @@ public class LoginService {
         return now;
     }
 
-    public String addUeser(User user) {
+     boolean addUser(User user) {
 
+         User s = userDao.save(user);
 
-     User s =   userDao.save(user);
-        if (s != null) {
-            return "成功";
-        }
-        return "失败";
+         return s != null ? true : false;
     }
+
+    boolean deleteUser(Integer userID) {
+         userDao.delete(userID);
+
+
+
+        return false;
+    }
+
+
+
 
 }
