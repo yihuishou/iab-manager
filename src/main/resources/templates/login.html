@@ -5,7 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-<p>login</p>
 <form action="/login">
     <table>
         <tr>
@@ -22,25 +21,6 @@
         </tr>
     </table>
 </form>
-
-
-<div>
-    <a href="/show">查询</a>
-    <p>结果面板</p>
-    <label th:text="${user}">没有结果</label>
-
-    <table >
-
-        <tr data-th-each="user:${users}">
-
-            <td>用户名</td>
-            <td data-th-text="${user.userID}"></td>
-
-
-        </tr>
-    </table>
-
-
 </div>
 </body>
 </html>

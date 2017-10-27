@@ -9,7 +9,7 @@ import java.util.List;
  * Created by BlueSky on 2017/10/20.
  */
 @Repository
-public interface UserDaoM {
+public interface UserDao {
     // @Select("select * from user")
     List<User> getAll();
 }

@@ -32,8 +32,8 @@ public class Portfolio {
     //图源名
     private String BookSourceOwnerName;
     //翻译名
-    private String BookTranslatedName;
-    // 校对名
+    private String BookTranslaterName;
+    //校对名
     private String BookCheckerName;
     //作者
     private String authorName;
@@ -110,12 +110,12 @@ public class Portfolio {
         BookSourceOwnerName = bookSourceOwnerName;
     }
 
-    public String getBookTranslatedName() {
-        return BookTranslatedName;
+    public String getBookTranslaterName() {
+        return BookTranslaterName;
     }
 
-    public void setBookTranslatedName(String bookTranslatedName) {
-        BookTranslatedName = bookTranslatedName;
+    public void setBookTranslaterName(String bookTranslaterName) {
+        BookTranslaterName = bookTranslaterName;
     }
 
     public String getBookCheckerName() {

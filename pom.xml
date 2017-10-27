@@ -131,6 +131,29 @@
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 
+		<!-- mybatis-plus begin -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatisplus-spring-boot-starter</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<!-- mybatis-plus end -->
+
+		<dependency>
+			<groupId>com.github.axet</groupId>
+			<artifactId>kaptcha</artifactId>
+			<version>0.0.9</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -144,6 +167,7 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
 			</plugin>-->
+
 			<!--mybatis-generator插件-->
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>

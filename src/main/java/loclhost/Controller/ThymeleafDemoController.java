@@ -20,7 +20,7 @@ public class ThymeleafDemoController {
     }
 
 //  JSON处理
-//     public User JsonDemo ()
+
 
 //AJAX处理
 
@@ -31,7 +31,6 @@ public class ThymeleafDemoController {
 // 静态资源储量
 
 
-//
 
 
 }

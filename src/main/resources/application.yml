@@ -70,9 +70,13 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
     show-sql: true
 
-#  控制台多彩输出
+
+# 控制台多彩输出
   output:
     ansi:
       enabled: detect
@@ -98,7 +102,9 @@ logging:
 #设置文件，可以是绝对路径，也可以是相对路径。
 # file: /filelog.log
 #设置目录，会在该目录下创建spring.log文件，并写入日志内容
- path: /
+ path: /logFile
+
+# mybatis配置
 mybatis:
   mapper-locations: classpath:MapperFile/*.xml
   type-aliases-package: loclhost.Model

@@ -9,17 +9,17 @@ import javax.persistence.Id;
  */
 @Entity
 public class User {
-    // 用户ID
+    //用户ID
     @Id
     @GeneratedValue
     private Integer userID;
-    // 用户名
+    //用户名
     private String username;
-    // 用户密码
+    //用户密码
     private String password;
-    // 角色ID
+    //角色ID
     private Integer roleCode;
-    // 拥有作品ID
+    //拥有作品ID
     private Integer portfolioOwnerID;
 
     public Integer getUserID() {
