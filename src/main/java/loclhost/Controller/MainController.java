@@ -1,9 +1,11 @@
 package loclhost.Controller;
 
+
 import loclhost.Model.User;
 import loclhost.Service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -22,35 +24,75 @@ public class MainController {
         return "login";
     }
 
-    @RequestMapping("/login")
-    public String login(User user) {
-      boolean loginResult =  loginService.login(user);
-        return "login";
+
+    @RequestMapping("/userlogin")
+    public String login(User user, Model model) {
+        boolean loginResult = loginService.login(user);
+        if (loginResult) {
+            // List userlist = loginService.showAllUser();
+            // model.addAttribute("userlist", userlist);
+            return "main";
+        }
+        // model.addAttribute("message", "登陆失败");
+        return "main";
     }
-    @RequestMapping("/add")
-    public String addUser(User user) {
-        boolean addUserResult =loginService.addUser(user);
+
+    @RequestMapping("/adduser")
+    public String addUser(User user, Model model) {
+        boolean addUserResult = loginService.addUser(user);
+        if (addUserResult) {
+            model.addAttribute("message", "添加成功");
+        }
+        model.addAttribute("message", "添加失败");
         return "newuser";
 
     }
-    @RequestMapping("/delete")
-    public String deleteUser(Integer userID) {
-        boolean deleteUserResult = loginService.deleteUser(userID);
+
+    @RequestMapping("/deleteuser")
+    public String deleteUser(String userID,Model model) {
+        boolean deleteUserResult = loginService.deleteUser(Integer.valueOf(userID));
+        if (deleteUserResult) {
+            model.addAttribute("message", "删除成功");
+        }
+        model.addAttribute("message", "删除失败");
         return "userlist";
 
     }
-    @RequestMapping("/update")
-    public String updateUser(User user) {
-        boolean updateUser = loginService.updateUser(user);
+
+    @RequestMapping("/updateuser")
+    public String updateUser(User user,Model model) {
+         boolean updateUserResult = loginService.updateUser(user);
+
+        if (updateUserResult) {
+            model.addAttribute("message", "删除成功");
+        }
+        model.addAttribute("message", "删除失败");
         return "userlist";
     }
+
     @RequestMapping("/show")
-    public String showUser() {
+    public String showUser(Model model) {
         List userList = loginService.showAllUser();
+        model.addAttribute("userlist", userList);
         return "userlist";
     }
 
+    @RequestMapping("/newuser")
+    public String newUser() {
+        return "newuser";
+    }
 
+    @RequestMapping("/deleteall")
+    public String cleanUser() {
+        loginService.cleanUser();
+        return "userlist";
+    }
+    @RequestMapping("/finduser")
+    public String findUser(String username,Model model) {
+     User user =   loginService.findUser(username);
+        System.out.println(user.getUsername()+" "+user.getPassword());
+        return "userlist";
+    }
 
 
 

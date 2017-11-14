@@ -5,15 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/add">
+<form action="/adduser" method="post">
     <table>
         <tr>
             <td>用户名</td>
-            <td><input type="text"/></td>
+            <td><input type="text" name="username"/></td>
         </tr>
         <tr>
             <td>密码</td>
-            <td><input type="password"/></td>
+            <td><input type="password" name="password"/></td>
         </tr>
         <tr>
             <td>
@@ -21,7 +21,13 @@
             <td>
                 <button type="reset">取消</button></td>
         </tr>
+        <tr>
+            <a href="/">返回主页</a>
+        </tr>
     </table>
 </form>
+<span th:text="${message}">
+  <!--  结果：[[${message}]]-->
+</span>
 </body>
 </html>

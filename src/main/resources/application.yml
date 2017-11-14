@@ -18,13 +18,13 @@ spring:
   # mode: LEGACYHTML5
 
   # 静态资源配置
-  mvc:
-    static-path-pattern: /**
+#  mvc:
+#    static-path-pattern: /**
     # 不使用页面标签默认ICO图标
-    favicon:
-      enabled: true
-  resources:
-    static-locations: classpath:/static/,classpath:/public/,classpath:/templates/,classpath:/resources/,classpath:/META-INF/resources/
+#    favicon:
+#      enabled: true
+#  resources:
+#    static-locations: classpath:/static/,classpath:/public/,classpath:/templates/,classpath:/resources/,classpath:/META-INF/resources/
   # 数据源配置
   datasource:
     # 驱动配置信息
@@ -108,3 +108,5 @@ logging:
 mybatis:
   mapper-locations: classpath:MapperFile/*.xml
   type-aliases-package: loclhost.Model
+
+

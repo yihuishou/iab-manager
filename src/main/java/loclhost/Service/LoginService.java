@@ -4,7 +4,6 @@ import loclhost.Dao.UserDao;
 import loclhost.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,20 +17,36 @@ public class LoginService {
 
 
     public boolean addUser(User user) {
+        try {
+            User now = userDao.save(user);
+            System.out.println(now.getUsername());
+        } catch (Exception e) {
 
-        User s = userDao.save(user);
+            return false;
+        }
 
-        return s != null ? true : false;
+        return true;
     }
 
     public boolean deleteUser(Integer userID) {
         userDao.delete(userID);
         return false;
     }
-    @Transactional
+
+
+    public boolean update(User user) {
+        int result = userDao.updateF1(user.getUsername(), Integer.valueOf(user.getUserID()));
+        System.out.println(result);
+        return true;
+    }
+
+
     public boolean updateUser(User user) {
         try {
-            userDao.save(user);
+            User newuser = userDao.save(user);
+            System.out.println(newuser);
+
+
             return true;
         } catch (Exception e) {
             return false;
@@ -50,5 +65,13 @@ public class LoginService {
 
     public List showAllUser() {
         return userDao.findAll();
+    }
+
+    public void cleanUser() {
+        userDao.deleteAll();
+    }
+
+    public User findUser(String username) {
+        return userDao.findByusername(username);
     }
 }

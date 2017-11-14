@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
-<form action="/login">
+<form action="/login" method="post">
     <table>
         <tr>
             <td>用户名</td>
@@ -16,12 +16,21 @@
             <td><input type="password" name="password"/></td>
         </tr>
         <tr>
-            <td>    <button type="submit">登陆</button></td>
-            <td>    <button type="reset">取消</button></td>
+            <td>
+                <button type="submit">登陆</button>
+            </td>
+            <td>
+                <button type="reset">放弃</button>
+            </td>
         </tr>
         <tr>
             <td>
-            <a href="/newuser.html">注册新用户</a>
+                <a href="/newuser">注册新用户</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/show">查询中心</a>
             </td>
         </tr>
     </table>
