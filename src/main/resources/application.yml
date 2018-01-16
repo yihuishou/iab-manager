@@ -20,7 +20,7 @@ spring:
   # 静态资源配置
 #  mvc:
 #    static-path-pattern: /**
-    # 不使用页面标签默认ICO图标
+#     不使用页面标签默认ICO图标
 #    favicon:
 #      enabled: true
 #  resources:
@@ -37,7 +37,7 @@ spring:
     # 数据库用户登录名
     username: root
     # 数据库用户登录密码
-    password: abc123
+    password: 40010
 
     # Druid连接池配置
     # 初始化连接数大小
