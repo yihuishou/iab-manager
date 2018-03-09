@@ -85,9 +85,9 @@ mybatis:
 # debug: false
 
 # logback日志配置
-logging:
+#logging:
 # 设置文件，可以是绝对路径，也可以是相对路径。
 # file: /filelog.log
 # 设置目录，会在该目录下创建spring.log文件，并写入日志内容
- path: /logFile
+# path: /logFile
 
