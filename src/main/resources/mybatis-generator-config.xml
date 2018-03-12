@@ -11,7 +11,7 @@
     
     
     <!--添加你本地的驱动jar-->
-    <classPathEntry location="C:\Users\BlueSky\.m2\repository\mysql\mysql-connector-java\5.1.15\mysql-connector-java-5.1.15.jar"/>
+    <classPathEntry location="C:\Users\SH\.m2\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar"/>
     
     <context id="context" targetRuntime="MyBatis3">
 
@@ -24,7 +24,7 @@
         </commentGenerator>
 
         <!--添加你的 JDBC 连接信息-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/iab" userId="root" password="abc123"/>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/iab" userId="root" password="40010"/>
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
