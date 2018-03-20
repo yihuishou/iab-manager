@@ -7,7 +7,6 @@ spring:
   http:
     encoding:
       charset: utf-8
-
   thymeleaf:
 
   # 模板路径前缀
