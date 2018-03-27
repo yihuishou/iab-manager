@@ -22,8 +22,8 @@ spring:
   mvc:
     static-path-pattern: /**
     # 不使用页面标签默认ICO图标
-    favicon:
-      enabled: true
+#    favicon:
+#      enabled: true
 #  resources:
    # static-locations: classpath:/static/,classpath:/public/,classpath:/templates/,classpath:/resources/,classpath:/META-INF/resources/
    # 数据源配置
@@ -62,19 +62,15 @@ spring:
       pool-prepared-statements: true
       max-pool-prepared-statement-per-connection-size: 20
 
-
-
-
 # 控制台多彩输出
   output:
     ansi:
       enabled: detect
 
 # mybatis配置
-mybatis:
-#
-  mapper-locations: classpath:MapperFile/*.xml
-  type-aliases-package: loclhost.Model
+#mybatis:
+#  mapper-locations: classpath:MapperFile/*.xml
+#  type-aliases-package: loclhost.Model
 
 #  jpa:
 #    hibernate:
@@ -93,4 +89,14 @@ mybatis:
 # file: /filelog.log
 # 设置目录，会在该目录下创建spring.log文件，并写入日志内容
 # path: /logFile
+
+# 分页插件
+#pagehelper:
+#  dialect: mysql
+#  reasonable: true
+#  support-methods-arguments: true
+#  params: count=countSql
+
+mapper:
+  not-empty: true
 
