@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>用户查询</title>
+</head>
+<body>
+<form th:action="@{/login}" method="post">
+    <table>
+        <thead>
+        <td>userid</td>
+        <td>username</td>
+        <td>password</td>
+        <td>roleid</td>
+        </thead>
+        <tr th:each="ob,o:${reList}">
+            <td th:text="${ob.userid}"></td>
+            <td th:text="${ob.username}"></td>
+            <td th:text="${ob.password}"></td>
+            <td th:text="${ob.roleid}"></td>
+        </tr>
+    </table>
+</form>
+<label th:text="${te}"></label>
+</body>
+</html>

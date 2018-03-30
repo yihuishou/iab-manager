@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>用户注册</title>
+    <meta charset="UTF-8">
+    <title>用户修改</title>
 </head>
 <body>
-<form th:action="@{/add}" method="post">
+<form th:action="@{/fixuser}" action="/login" method="post">
     <table>
         <tr>
             <td>用户名</td>
@@ -24,10 +24,6 @@
             </td>
         </tr>
     </table>
-    <input type="hidden" name="token" th:value="${session.token}"/>
-  <!--  <label th:text="${session.token}"></label>
-    <label th:text="${token}"></label>-->
 </form>
-
 </body>
 </html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>登陆</title>
 </head>
 <body>
-<form action="/login" method="post">
+<form th:action="@{/login}" action="/login" method="post">
     <table>
         <tr>
             <td>用户名</td>
@@ -25,16 +25,31 @@
         </tr>
         <tr>
             <td>
-                <a href="/newuser">注册新用户</a>
+                <a th:href="@{/toNew}">注册新用户</a>
             </td>
         </tr>
         <tr>
             <td>
-                <a href="/show">查询中心</a>
+                <a th:href="@{/select}">查询中心</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/toNew2}">注册新用户2</a>
             </td>
         </tr>
     </table>
 </form>
+
+<div>
+
+    <label>结果</label>
+
+    <label th:text="${result}">默认结果</label>
+
+
+</div>
+
 
 </body>
 </html>

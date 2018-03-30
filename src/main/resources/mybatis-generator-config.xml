@@ -14,8 +14,8 @@
             <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
             <property name="caseSensitive" value="true"/>
             <property name="forceAnnotation" value="true"/>
-        <!--    <property name="beginningDelimiter" value="`"/>
-            <property name="endingDelimiter" value="`"/>-->
+            <!--    <property name="beginningDelimiter" value="`"/>
+                <property name="endingDelimiter" value="`"/>-->
         </plugin>
 
         <!--屏蔽注释信息-->

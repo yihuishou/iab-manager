@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>登陆</title>
+</head>
+<body>
+<form th:action="@{/file}" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>文件</td>
+            <td><input type="file" name="intoFile"/></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">登陆</button>
+            </td>
+            <td>
+                <button type="reset">放弃</button>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" th:value="${token}"/>
+</form>
+
+
+<form th:action="@{/file/es}" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>文件1</td>
+            <td><input type="file" name="esfile"/></td>
+        </tr>
+        <tr>
+            <td>文件2</td>
+            <td><input type="file" name="esfile"/></td>
+        </tr>
+        <tr>
+            <td>文件3</td>
+            <td><input type="file" name="esfile"/></td>
+        </tr>
+        <tr>
+            <td>文件4</td>
+            <td><input type="file" name="esfile"/></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">登陆</button>
+            </td>
+            <td>
+                <button type="reset">放弃</button>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" th:value="${token}"/>
+</form>
+
+
+<div>
+
+    <label>结果</label>
+
+    <label th:text="${filename}">默认结果</label>
+
+
+</div>
+
+
+</body>
+</html>
