@@ -7,6 +7,10 @@ spring:
   http:
     encoding:
       charset: utf-8
+
+  cache:
+    type: redis
+
   thymeleaf:
 
   # 模板路径前缀
@@ -62,8 +66,6 @@ spring:
       pool-prepared-statements: true
       max-pool-prepared-statement-per-connection-size: 20
 
-
-
 # 控制台多彩输出
   output:
     ansi:
@@ -98,8 +100,4 @@ spring:
 #  reasonable: true
 #  support-methods-arguments: true
 #  params: count=countSql
-
-#mapper:
-#  not-empty: true
-#  mappers: loclhost.mapper
 

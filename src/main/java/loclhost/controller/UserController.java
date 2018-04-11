@@ -6,10 +6,10 @@ import loclhost.services.UserServices;
 import loclhost.token.CheckDuplicate;
 import loclhost.token.SetDuplicateMark;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -82,7 +82,6 @@ public class UserController {
         model.addAttribute("reList", relist);
 
 
-
         Role role = new Role();
         role.setRolename("12312");
         role.setRolenote("oopp");
@@ -92,12 +91,21 @@ public class UserController {
 
     }
 
-    @RequestMapping("/fixuser")
+    @RequestMapping(value = "/fixuser")
     String fixuser(Model model, Consumer consumer) {
 
         boolean fix = userServices.fixUser(consumer);
 
         model.addAttribute("result", fix ? "成功" : "失败");
         return "login";
+    }
+
+    @ResponseBody
+    @RequestMapping
+    @ResponseStatus(value = HttpStatus.LOOP_DETECTED, code = HttpStatus.LOOP_DETECTED, reason = "12312")
+    String getl(String rol) {
+        userServices.getList(rol);
+        return "sas";
+
     }
 }

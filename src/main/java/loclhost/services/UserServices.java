@@ -19,9 +19,15 @@ public class UserServices {
 
         int inser = consumerMapper.insert(consumer);
 
+
         return inser != 0;
     }
 
+    public List<Consumer> getList(String role) {
+
+
+        return consumerMapper.findConsumerByRole(role);
+    }
 
     public boolean login(String username, String password) {
         Consumer consumer = new Consumer();

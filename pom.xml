@@ -74,6 +74,11 @@
                 </dependency>-->
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
@@ -129,7 +134,7 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.3</version>
+            <version>1.2.4</version>
         </dependency>
 
         <!-- 安全认证框架 -->
@@ -157,12 +162,31 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
-        <!--Poi支持-->
+        <!--使用redis替换session-->
+        <!--    <dependency>
+                <groupId>org.springframework.session</groupId>
+                <artifactId>spring-session-data-redis</artifactId>
+                <version>2.0.2.RELEASE</version>
+            </dependency>-->
+
+
         <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-spring-boot-starter</artifactId>
-            <version>0.1.1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
+
+        <!--Poi支持-->
+        <!--   <dependency>
+               <groupId>cn.afterturn</groupId>
+               <artifactId>easypoi-spring-boot-starter</artifactId>
+               <version>0.1.1</version>
+           </dependency>-->
+
+        <!--        <dependency>
+                    <groupId>org.rocketmq</groupId>
+                    <artifactId>spring-boot-starter-rocketmq</artifactId>
+                    <version>1.0.0.RELEASE</version>
+                </dependency>-->
 
     </dependencies>
 
@@ -174,22 +198,22 @@
             </plugin>
 
             <!-- Docker maven plugin -->
-            <!--            <plugin>
-                            <groupId>com.spotify</groupId>
-                            <artifactId>docker-maven-plugin</artifactId>
-                            <version>1.0.0</version>
-                            <configuration>
-                                <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                                <dockerDirectory>src/main/docker</dockerDirectory>
-                                <resources>
-                                    <resource>
-                                        <targetPath>/</targetPath>
-                                        <directory>${project.build.directory}</directory>
-                                        <include>${project.build.finalName}.jar</include>
-                                    </resource>
-                                </resources>
-                            </configuration>
-                        </plugin>-->
+<!--            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>-->
             <!-- Docker maven plugin -->
 
             <!--mybatis-generator插件配置-->

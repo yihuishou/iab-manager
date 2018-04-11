@@ -2,6 +2,7 @@ package loclhost.controller;
 
 import loclhost.token.CheckDuplicate;
 import loclhost.token.SetDuplicateMark;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +25,7 @@ public class FileController {
 
         System.out.println(intoFile.getName());
         System.out.println(intoFile.getSize());
+
         return "filepage";
     }
 
@@ -33,6 +35,7 @@ public class FileController {
         return "filepage";
     }
 
+    @CachePut(value = "12312")
     @PostMapping("es")
     public String getesfile(MultipartFile[] esfile, Model model) {
 
@@ -40,5 +43,8 @@ public class FileController {
         model.addAttribute("filename", fileName);
         System.out.println(fileName);
         return "filepage";
+
     }
+
+
 }
