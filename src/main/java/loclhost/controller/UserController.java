@@ -3,13 +3,11 @@ package loclhost.controller;
 import loclhost.model.Consumer;
 import loclhost.model.Role;
 import loclhost.services.UserServices;
-import loclhost.token.CheckDuplicate;
-import loclhost.token.SetDuplicateMark;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -33,12 +31,12 @@ public class UserController {
     @RequestMapping("/login")
     String login(Model model, Consumer consumer) {
 
+
         boolean loginResult = userServices.login(consumer.getUsername(), consumer.getPassword());
         model.addAttribute("result", loginResult ? "成功" : "失败");
         return "login";
     }
 
-    @CheckDuplicate
     @RequestMapping("/add")
     ModelAndView addNew(Consumer consumer) {
         ModelAndView modelAndView = new ModelAndView();
@@ -51,7 +49,6 @@ public class UserController {
         return modelAndView;
     }
 
-    @SetDuplicateMark
     @RequestMapping("/toNew")
     String toNew() {
         return "newuser";
@@ -66,12 +63,9 @@ public class UserController {
     @RequestMapping("/newuser")
     String addNewuser(Consumer consumer, Model model, RedirectAttributes redirectAttributes) {
 
-
         boolean re = userServices.newUser(consumer);
-
         redirectAttributes.addFlashAttribute("result", re ? "成功" : "失败");
         return "redirect:/newuser";
-
     }
 
     @RequestMapping("/select")
@@ -100,12 +94,4 @@ public class UserController {
         return "login";
     }
 
-    @ResponseBody
-    @RequestMapping
-    @ResponseStatus(value = HttpStatus.LOOP_DETECTED, code = HttpStatus.LOOP_DETECTED, reason = "12312")
-    String getl(String rol) {
-        userServices.getList(rol);
-        return "sas";
-
-    }
 }
