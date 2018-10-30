@@ -1,0 +1,213 @@
+
+[[example]]
+== 接口示例
+
+[[_example]]
+=== 圈存充值
+
+
+==== 请求示例
+
+[source,json]
+----
+{
+  "handleType" : "transfer",
+  "bankTransferFlow" : "20181020000001",
+  "bankTransferTime" : "2018-10-20 12:38:42",
+  "stuNo" : "210005686",
+  "transferMoney" : "125.36"
+}
+----
+
+==== 响应示例
+
+[source,json]
+----
+{
+  "handleType" : "transfer",
+  "message" : "操作成功",
+  "resultCode" : "success"
+}
+----
+
+=== 圈存查询
+
+
+==== 请求示例
+
+[source,json]
+----
+{
+  "handleType" : "queryTransfer",
+  "queryTransferFlowEndDate" : "2018-10-20",
+  "queryTransferFlowStartDate" : "2018-10-01",
+  "stuNo" : "210005686"
+}
+----
+
+==== 响应示例
+
+[source,json]
+----
+{
+  "data" : [ {
+    "bankTransferTime" : "2018-10-20 12:38:42",
+    "transferMoney" : "125.36"
+  } ],
+  "handleType" : "queryTransfer",
+  "message" : "操作成功",
+  "resultCode" : "success"
+}
+----
+
+=== 身份认证
+
+
+==== 请求示例
+
+[source,json]
+----
+{
+  "handleType" : "validation",
+  "idcard" : "510100197512305607",
+  "password" : "123456"
+}
+----
+
+==== 响应示例
+
+[source,json]
+----
+{
+  "data" : [ {
+    "idcard" : "510100197512305607",
+    "stuNo" : "210005686"
+  } ],
+  "handleType" : "validation",
+  "message" : "操作成功",
+  "resultCode" : "success"
+}
+----
+
+=== 卡信息查询
+
+
+==== 请求示例
+
+[source,json]
+----
+{
+  "handleType" : "queryCardInfo",
+  "stuNo" : "210005686"
+}
+----
+
+==== 响应示例
+
+[source,json]
+----
+{
+  "data" : [ {
+    "balance" : "323.69",
+    "cardCode" : "200000289854",
+    "cardState" : "normal",
+    "department" : "食堂",
+    "idcard" : "510100197512305607",
+    "stuName" : "小明",
+    "stuNo" : "210005686"
+  } ],
+  "handleType" : "queryCardInfo",
+  "message" : "操作成功",
+  "resultCode" : "success"
+}
+----
+
+=== 卡密码修改
+
+
+==== 请求示例
+
+[source,json]
+----
+{
+  "handleType" : "modifyPassword",
+  "newPassword" : "123456",
+  "password" : "000000",
+  "stuNo" : "210005686"
+}
+----
+
+==== 响应示例
+
+[source,json]
+----
+{
+  "handleType" : "modifyPassword",
+  "message" : "操作成功",
+  "resultCode" : "success"
+}
+----
+
+=== 卡挂失
+
+
+==== 请求示例
+
+[source,json]
+----
+{
+  "handleType" : "lossCard",
+  "cardCode" : "200000289854",
+  "stuNo" : "210005686"
+}
+----
+
+==== 响应示例
+
+[source,json]
+----
+{
+  "handleType" : "lossCard",
+  "message" : "操作成功",
+  "resultCode" : "success"
+}
+----
+
+
+[[reconcilia]]
+== 对账文件
+
+[[reconcilia]]
+=== 对账文件说明
+
+校园卡前置机对接入方开放一个ftp帐户（具体帐户信息由联调时确定）。
+
+银行把前一日的账务信息所生产的对账文件发送到校园卡前置机ftp服务器，校园卡系统根据银行提供的对账信息进行对帐。
+
+对帐文件为TXT文本文件，文件名为10位标识加日期格式，例如：
+
+BANK__BCM_20181020.txt
+
+对帐文件内分为文件头和文件体两部分，文件头为文件的第一行，内容为：
+
+对帐日期(yyyymmdd)|交易总笔数|交易总金额(单位：元)|学校编码|
+
+文件体中每行为一笔交易，内容为：
+
+对帐日期(yyyymmdd)|银行流水号(14位)|学号|交易金额(单位：元)|
+
+
+[[_reconcilia]]
+=== 对账文件示例
+
+[source,txt]
+----
+BANK__BCM_20181020.txt
+----
+[source,txt]
+----
+20181020|3|300.05|exampleCode
+20181020|20181020000012|12021520|100.03|
+20181020|20181020000011|12021520|100.02|
+20181020|20181020000010|12021520|100|
+----

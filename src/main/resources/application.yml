@@ -8,8 +8,8 @@ spring:
     encoding:
       charset: utf-8
 
-  cache:
-    type: redis
+#  cache:
+#    type: redis
 
   thymeleaf:
 
@@ -21,6 +21,7 @@ spring:
     cache: false
   # 使用非严格解析的HTML5格式（需要添加NekoHTML库依赖）
     mode: HTML5
+
 
 # 静态资源配置
   mvc:
@@ -65,11 +66,30 @@ spring:
       # 打开PSCache，并且指定每个连接上PSCache的大小
       pool-prepared-statements: true
       max-pool-prepared-statement-per-connection-size: 20
+      stat-view-servlet:
+        login-username: admin
+        login-password: 0
+
+
 
 # 控制台多彩输出
   output:
     ansi:
       enabled: detect
+
+
+
+swagger:
+  title: 宝石金卡校园一卡通接口说明文档
+  description: 校园一卡通Http协议接口说明文档
+  version: 1.2
+
+  apply-default-response-messages: false
+  global-response-message:
+    post[0]:
+      coed: 500
+  exclude-path: /error
+
 
 # mybatis配置
 #mybatis:
@@ -100,4 +120,3 @@ spring:
 #  reasonable: true
 #  support-methods-arguments: true
 #  params: count=countSql
-

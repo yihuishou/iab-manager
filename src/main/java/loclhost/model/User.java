@@ -2,37 +2,34 @@ package loclhost.model;
 
 import javax.persistence.*;
 
-@Table(name = "consumer")
-public class Consumer {
+@Table(name = "user")
+public class User {
     @Id
-    @Column(name = "userID")
-    private Integer userid;
+    @Column(name = "id")
+    private Integer id;
 
-    @Column(name = "userName")
+    @Column(name = "username")
     private String username;
-
-    @Column(name = "roleID")
-    private Integer roleid;
 
     @Column(name = "password")
     private String password;
 
     /**
-     * @return userID
+     * @return id
      */
-    public Integer getUserid() {
-        return userid;
+    public Integer getId() {
+        return id;
     }
 
     /**
-     * @param userid
+     * @param id
      */
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**
-     * @return userName
+     * @return username
      */
     public String getUsername() {
         return username;
@@ -43,20 +40,6 @@ public class Consumer {
      */
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    /**
-     * @return roleID
-     */
-    public Integer getRoleid() {
-        return roleid;
-    }
-
-    /**
-     * @param roleid
-     */
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
     }
 
     /**
